@@ -1,0 +1,99 @@
+/* MessageScreen.css */
+
+.message-screen {
+  display: flex;
+  height: 100vh; /* Full screen height */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a clean sans-serif font */
+  background-color: #e5ddd5; /* Light background color */
+}
+
+.contact-list {
+  width: 30%;
+  background-color: #ffffff; /* White background for the contact list */
+  border-right: 1px solid #ddd; /* Subtle right border */
+  padding: 10px;
+  overflow-y: auto; /* Enable scrolling for long contact lists */
+}
+
+.contact-list h1 {
+  font-size: 24px; /* Larger title font size */
+  margin-bottom: 10px;
+  color: #25d366; /* WhatsApp green color for headings */
+}
+
+.contact-list ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+}
+
+.contact-list li {
+  padding: 10px;
+  border-radius: 8px; /* Rounded corners for each contact */
+  transition: background-color 0.2s; /* Smooth background transition */
+}
+
+.contact-list li:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.messaging-section {
+  flex-grow: 1; /* Fill the remaining space */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  padding: 10px;
+}
+
+.messages-container {
+  flex-grow: 1; /* Allow messages container to grow */
+  overflow-y: auto; /* Enable scrolling for messages */
+  padding: 10px;
+  background-color: #ffffff; /* White background for messages */
+  border-radius: 8px; /* Rounded corners for message area */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.message {
+  margin-bottom: 10px; /* Space between messages */
+  max-width: 75%; /* Limit message width */
+  padding: 10px;
+  border-radius: 10px; /* Rounded corners for messages */
+}
+
+.message.sender {
+  background-color: #dcf8c6; /* Sender message color */
+  align-self: flex-end; /* Align sender messages to the right */
+}
+
+.message.receiver {
+  background-color: #ffffff; /* Receiver message color */
+  align-self: flex-start; /* Align receiver messages to the left */
+}
+
+.send-message-form {
+  display: flex; /* Flexbox for form elements */
+  margin-top: 10px; /* Space above the input */
+}
+
+.send-message-form input {
+  flex-grow: 1; /* Input takes remaining space */
+  padding: 10px; /* Padding for input */
+  border: 1px solid #ccc; /* Border for input */
+  border-radius: 20px; /* Rounded corners */
+  outline: none; /* Remove outline */
+  margin-right: 10px; /* Space between input and button */
+}
+
+.send-message-form button {
+  padding: 10px 20px; /* Padding for button */
+  background-color: #25d366; /* WhatsApp green color */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.2s; /* Smooth background transition */
+}
+
+.send-message-form button:hover {
+  background-color: #128c7e; /* Darker green on hover */
+}

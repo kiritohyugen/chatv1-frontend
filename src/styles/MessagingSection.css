@@ -1,0 +1,28 @@
+/* MessagingSection.css */
+
+.messages-container {
+    flex-grow: 1; /* Allow messages container to grow */
+    overflow-y: auto; /* Enable scrolling for messages */
+    padding: 10px;
+    background-color: #ffffff; /* White background for messages */
+    border-radius: 8px; /* Rounded corners for message area */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .message {
+    margin-bottom: 10px; /* Space between messages */
+    max-width: 75%; /* Limit message width */
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners for messages */
+  }
+  
+  .message.sender {
+    background-color: #dcf8c6; /* Sender message color */
+    align-self: flex-end; /* Align sender messages to the right */
+  }
+  
+  .message.receiver {
+    background-color: #ffffff; /* Receiver message color */
+    align-self: flex-start; /* Align receiver messages to the left */
+  }
+  

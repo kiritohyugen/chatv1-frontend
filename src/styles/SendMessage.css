@@ -1,0 +1,30 @@
+/* SendMessage.css */
+
+.send-message-form {
+    display: flex; /* Flexbox for form elements */
+    margin-top: 10px; /* Space above the input */
+  }
+  
+  .send-message-form input {
+    flex-grow: 1; /* Input takes remaining space */
+    padding: 10px; /* Padding for input */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 20px; /* Rounded corners */
+    outline: none; /* Remove outline */
+    margin-right: 10px; /* Space between input and button */
+  }
+  
+  .send-message-form button {
+    padding: 10px 20px; /* Padding for button */
+    background-color: #25d366; /* WhatsApp green color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.2s; /* Smooth background transition */
+  }
+  
+  .send-message-form button:hover {
+    background-color: #128c7e; /* Darker green on hover */
+  }
+  

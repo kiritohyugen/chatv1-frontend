@@ -1,12 +1,16 @@
 import { useState } from "react";
 import '../styles/Auth.css';
+import { Outlet, useNavigate } from "react-router-dom";
+
+import {sendMessage,fetchMessages,login,signup} from '../api';
 
 export default function Auth() {
   const [uname, setUname] = useState('username');
   const [pword, setPword] = useState('password');
   const [pending, setPending] = useState(false);
   const [serverMessage, setServerMessage] = useState('');
-  const [isLogin, setIsLogin] = useState(true); // Track whether to show login or signup
+  const [isLogin, setIsLogin] = useState(false); // Track whether to show login or signup
+  const navigate = useNavigate();
 
   async function handleSignup(e) {
     e.preventDefault();
@@ -16,15 +20,21 @@ export default function Auth() {
     console.log("Signup Attempt:", formData); // Log form data
 
     try {
-      const response = await fetch('http://localhost:8080/chatv1/user/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+    //   const response = await fetch('http://localhost:8080/chatv1/user/signup', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(formData)
+    //   });
+
+    const response = await signup(formData);
+
       
-      const responseData = await response.json();
+    //   const responseData = await response.json();
+      const responseData = response.data;
       console.log("Signup Response:", responseData); // Log server response
+      
       setServerMessage(responseData.success ? `Success: ${responseData.message}` : `Error: ${responseData.message}`);
+
     } catch (error) {
       console.error("Signup Error:", error); // Log any errors that occur
       setServerMessage(`Signup Failed: ${error.message}`);
@@ -40,16 +50,23 @@ export default function Auth() {
     const formData = { username: uname, password: pword };
     console.log("Login Attempt:", formData); // Log form data
 
-    try {
-      const response = await fetch('http://localhost:8080/chatv1/user/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+     try {
+    //   const response = await fetch('http://localhost:8080/chatv1/user/login', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(formData)
+    //   });
+
+      const response = await login(formData);
       
-      const responseData = await response.json();
+      const responseData = response.data;
       console.log("Login Response:", responseData); // Log server response
+      if(responseData.success){
+        localStorage.setItem('token',responseData.data);
+        console.log("Token in Local Storage:", localStorage);
+       }
       setServerMessage(responseData.success ? `Success: ${responseData.message}` : `Error: ${responseData.message}`);
+      navigate('/messages');
     } catch (error) {
       console.error("Login Error:", error); // Log any errors that occur
       setServerMessage(`Login Failed: ${error.message}`);
@@ -59,8 +76,10 @@ export default function Auth() {
   }
 
   return (
+
     <div className="container">
       {isLogin ? (
+        <>
         <div>
           <h2>Login</h2>
           <form method="post" onSubmit={handleLogin}>
@@ -89,6 +108,11 @@ export default function Auth() {
             <button onClick={() => setIsLogin(false)}>Don't have an account? Signup</button>
           </div>
         </div>
+        <div>
+  <Outlet></Outlet>
+</div>
+        </>
+
       ) : (
         <div>
           <h2>Signup</h2>

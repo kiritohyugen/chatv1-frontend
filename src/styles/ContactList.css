@@ -1,0 +1,27 @@
+/* ContactList.css */
+
+.contact-list {
+    border: 2px solid red; /* Temporary border for testing */
+}
+
+.contact-list h1 {
+    font-size: 24px; /* Larger title font size */
+    margin-bottom: 10px;
+}
+
+.contact-list ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.contact-list li {
+    padding: 10px;
+    border-radius: 8px; /* Rounded corners for each contact */
+    background-color: #fff; /* Default background color */
+    transition: background-color 0.2s; /* Smooth background transition */
+}
+
+.contact-list li:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    cursor: pointer; /* Pointer cursor on hover */
+}
