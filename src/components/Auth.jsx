@@ -2,7 +2,7 @@ import { useState } from "react";
 import '../styles/Auth.css';
 import { Outlet, useNavigate } from "react-router-dom";
 
-import {sendMessage,fetchMessages,login,signup} from '../api';
+import {sendMessage,fetchMessages,login,signup,validateToken} from '../api';
 
 export default function Auth() {
   const [uname, setUname] = useState('username');

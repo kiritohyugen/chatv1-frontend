@@ -42,5 +42,9 @@ api.interceptors.request.use(
 export const signup = (userData) => {
     return api.post('chatv1/user/signup', userData); // No token included
 };
+
+export const validateToken = () => {
+  return api.post('chatv1/user/validate-token'); 
+};
   
   export default api;
